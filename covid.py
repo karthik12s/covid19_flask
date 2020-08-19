@@ -4,11 +4,10 @@ wc=requests.get('https://api.covid19api.com/summary')
 wc=wc.json()
 g=wc['Global']
 wc=wc['Countries']
-app.secret_key='abc'
 india=wc[76]
 sc=(requests.get('https://api.covidindiatracker.com/state_data.json')).json()
 app=Flask(__name__)
-
+app.secret_key='abc'
 @app.route("/home")
 @app.route("/")
 def home():
