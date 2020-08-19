@@ -63,7 +63,7 @@ def bar_plots():
                 val_p.append(i['active'])
         if len(lab)<2 or len(val)<2:
             flash('Please Select a State')
-            return render_template('bar_plot.html',l1=li,ch='Covid cases Worldwide',sc1='State wide',path='/bar_plots',sc2='Worldwide',pa2='/bar_plotw')
+            return render_template('bar_plot.html',l1=s_names,ch='Covid cases Statewide',sc1='World wide',path='/bar_plotw',sc2='State wide',pa2='/bar_plots')
         return render_template('bar_plot.html',labels=lab,values=val,max_po=max(val)+1000,max_pr=max(val_p)+1000,values_p=val_p,a=a1,b=b1,l1=s_names,h1='Total cases',h2='Active cases',ch='Covid cases Statewide',sc1='World wide',path='/bar_plotw',sc2='State wide',pa2='/bar_plots')
     else:
     	return render_template('bar_plot.html',l1=s_names,ch='Covid cases Statewide',sc1='World wide',path='/bar_plotw',sc2='State wide',pa2='/bar_plots')
