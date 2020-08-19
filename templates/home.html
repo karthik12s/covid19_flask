@@ -1,0 +1,76 @@
+{% extends "main.html" %}
+{% block title %}Home Page{% endblock%}
+{%block content%}
+{% with messages=get_flashed_messages() %}
+{%if messages%}
+<p>{{messages[0]}}</p>
+{% endif %}
+{% endwith  %}
+{% if n %}
+<h1>Welcome {{n}}!!</h1>
+{% else%}
+<h1>Welcome user!!</h1>
+{% endif %}
+<h1 align='center'>Worldwide</h1>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <h3>Total Cases</h3>
+      <p>{{wc['TotalConfirmed']}}</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+
+      <h3>Total Deaths</h3>
+      <p>{{wc['TotalDeaths']}}</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <h3>Total Recovered</h3>
+      <p>{{wc['TotalRecovered']}}</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <h3>New Cases</h3>
+      <p>{{wc['NewConfirmed']}}</p>
+    </div>
+  </div>
+</div>
+<h1 align='center' margin-top='50px'>India</h1>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <h3>Total Cases</h3>
+      <p>{{ind['TotalConfirmed']}}</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+
+      <h3>Total Deaths</h3>
+      <p>{{ind['TotalDeaths']}}</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <h3>Total Recovered</h3>
+      <p>{{ind['TotalRecovered']}}</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <h3>New Cases</h3>
+      <p>{{ind['NewConfirmed']}}</p>
+    </div>
+  </div>
+</div>
+{%endblock%}

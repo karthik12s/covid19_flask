@@ -1,0 +1,55 @@
+{% extends "main.html" %}
+{% block title %}Cases List Page{% endblock%}
+{%block content%}
+{% with messages=get_flashed_messages() %}
+{%if messages%}
+<p>{{messages[0]}}</p>
+{% endif %}
+{% endwith  %}
+<a href="{{ path }}"><button type="button" class="btn btn-primary" >{{ sc1 }}</button></a>
+<a href="{{ pa2 }}"><button type="button" class="btn btn-secondary">{{ sc2 }}</button></a>
+{%if na=='world' %}
+<table class="table table-striped">
+  <tr>
+    <th>Country</th>
+    <th>Total Cases</th>
+    <th>Total Recovered</th>
+    <th>Total Deaths</th>
+    <th>New Cases</th>
+    <th>New Recovered</th>
+    <th>New Deaths</th>
+  </tr>
+  {% for i in lis %}
+
+  <tr>
+  <td>{{i['Country']}}</td>
+  <td>{{i['TotalConfirmed']}}</td>
+  <td>{{i['TotalRecovered']}}</td>
+  <td>{{i['TotalDeaths']}}</td>
+  <td>{{i['NewConfirmed']}}</td>
+  <td>{{i['NewRecovered']}}</td>
+  <td>{{i['NewDeaths']}}</td>
+  </tr>
+  {%endfor%}
+</table>
+{%elif na=='state'%}
+<table class="table table-striped">
+  <tr>
+    <th>State</th>
+    <th>Total Cases</th>
+    <th>Active Cases</th>
+    <th>Total Recovered</th>
+    <th>Total Deaths</th>
+  </tr>
+  {% for i in lis %}
+
+  <tr>
+  <td>{{i['state']}}</td>
+  <td>{{i['confirmed']}}</td>
+  <td>{{ i['active']}}</td>
+  <td>{{i['recovered']}}</td>
+  <td>{{i['deaths']}}</td>
+  </tr>
+  {%endfor%}
+{%endif%}
+{%endblock%}
