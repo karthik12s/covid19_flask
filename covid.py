@@ -3,6 +3,7 @@ import requests
 wc=requests.get('https://api.covid19api.com/summary')
 wc=wc.json()
 g=wc['Global']
+
 wc=wc['Countries']
 india=wc[76]
 sc=(requests.get('https://api.covidindiatracker.com/state_data.json')).json()
@@ -39,7 +40,7 @@ def bar_plotw():
                 val_p.append(i['NewConfirmed'])
         if len(lab)<2 or len(val)<2:
             flash('Please Select a country')
-            return render_template('bar_plot.html',l1=li)
+            return render_template('bar_plot.html',l1=li,ch='Covid cases Worldwide',sc1='State wide',path='/bar_plots',sc2='Worldwide',pa2='/bar_plotw')
         return render_template('bar_plot.html',labels=lab,values=val,max_po=max(val)+1000,max_pr=max(val_p)+0.2,values_p=val_p,a=a1,b=b1,l1=li,h1='Total cases',h2='New cases',ch='Covid cases Worldwide',sc1='State wide',path='/bar_plots',sc2='Worldwide',pa2='/bar_plotw')
     else:
     	return render_template('bar_plot.html',l1=li,ch='Covid cases Worldwide',sc1='State wide',path='/bar_plots',sc2='Worldwide',pa2='/bar_plotw')
@@ -62,7 +63,7 @@ def bar_plots():
                 val_p.append(i['active'])
         if len(lab)<2 or len(val)<2:
             flash('Please Select a State')
-            return render_template('bar_plot.html',l1=li)
+            return render_template('bar_plot.html',l1=li,ch='Covid cases Worldwide',sc1='State wide',path='/bar_plots',sc2='Worldwide',pa2='/bar_plotw')
         return render_template('bar_plot.html',labels=lab,values=val,max_po=max(val)+1000,max_pr=max(val_p)+1000,values_p=val_p,a=a1,b=b1,l1=s_names,h1='Total cases',h2='Active cases',ch='Covid cases Statewide',sc1='World wide',path='/bar_plotw',sc2='State wide',pa2='/bar_plots')
     else:
     	return render_template('bar_plot.html',l1=s_names,ch='Covid cases Statewide',sc1='World wide',path='/bar_plotw',sc2='State wide',pa2='/bar_plots')
