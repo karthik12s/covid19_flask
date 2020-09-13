@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <head>
+   <meta name="viewport" content="width=device-width">
   <title>{% block title %}{% endblock %}</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <style media="screen">
@@ -57,14 +58,7 @@
         clear: both;
       }
 
-      /* Responsive columns */
-      @media screen and (max-width: 600px) {
-        .column {
-          width: 100%;
-          display: block;
-          margin-bottom: 10px;
-        }
-      }
+     
 
       /* Style the counter cards */
       .card {
@@ -79,7 +73,17 @@
       }
 
       .fa {font-size:50px;}
-
+ /* Responsive columns */
+      @media screen and (max-width: 600px) {
+        .column {
+          width: 100%;
+          display: block;
+          margin-bottom: 10px;
+        }
+        .card {
+        background-color : #8daefa;
+        }
+      }
   </style>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
 </head>
